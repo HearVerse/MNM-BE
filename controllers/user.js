@@ -31,7 +31,8 @@ class UserController {
 
         let { id, ...restOfUpdates } = req.body;
         let images = req.files;
-        restOfUpdates.profile_image = images.profile_image[0].path;
+        if(images?.profile_image) 
+            restOfUpdates.profile_image = images.profile_image[0].path;
 
         const result = await UserModel.update(restOfUpdates, req.body.id);
 

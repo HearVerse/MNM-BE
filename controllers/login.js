@@ -31,7 +31,7 @@ const login = asyncHandler(async (req, res) => {
             error: 'Invalid email or password'
         })
     }
-    return res.json({ success: true});
+    return res.json({ success: true, userId: user.id});
 })
 
 module.exports = login;
